@@ -5,8 +5,11 @@ import java.util.*;
 public class Solution2 {
     public static void main(String[] args) {
 
+        String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        List<List<String>> res = groupAnagrams(strs);
+        System.out.println(res);
     }
-    public List<List<String>> groupAnagrams(String[] strs) {
+    public static List<List<String>> groupAnagrams(String[] strs) {
         // 遍历字符串数组，排序后，将排序后的字符串作为key，将原字符串作为value
         Map<String, List<String>> map = new HashMap<String, List<String>>();
         for (String str : strs) {
