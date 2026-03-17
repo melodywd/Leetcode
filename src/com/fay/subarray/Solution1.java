@@ -19,9 +19,8 @@ public class Solution1 {
         // 遍历数组求前缀和并判断哈希表中是否有满足条件的前缀和
         for (int num : nums) {
             sum += num;
-            if (map.containsKey(sum - k)) {
-                res += map.get(sum - k);
-            }
+            // 满足条件则结果集加1
+            res += map.getOrDefault(sum - k, 0);
             // 添加前缀和
             map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
