@@ -1,13 +1,13 @@
 package com.fay.slidingwindow;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 public class Solution1 {
     public static void main(String[] args) {
-
+        String s = "abcabcbb";
+        int res = lengthOfLongestSubstring(s);
+        System.out.println(res);
     }
     public static int lengthOfLongestSubstring(String s) {
         // 定义一个哈希集合，用来记录出现过的字符和索引
