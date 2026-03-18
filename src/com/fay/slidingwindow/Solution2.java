@@ -24,7 +24,7 @@ public class Solution2 {
         }
         // 左指针窗口起点
         int l = 0;
-        // 固定长度pLen在s字符串中滑动窗口
+        // 固定长度 pLen 在s字符串中滑动窗口
         for (int r = 0; r < sLen; r++) {
             cnts[s.charAt(r) - 'a']++;
             // 判断窗口长度
