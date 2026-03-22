@@ -42,6 +42,7 @@ public class Solution3 {
             // 更新前缀和后缀最大值
             preMax = Math.max(preMax, height[left]);
             sufMax = Math.max(sufMax, height[right]);
+            // 判断左右最小值，收集雨水
             if (preMax < sufMax) {
                 res += preMax - height[left];
                 left++;
