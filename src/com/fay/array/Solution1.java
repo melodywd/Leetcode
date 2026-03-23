@@ -6,5 +6,6 @@ public class Solution1 {
     }
     public static int maxSubArray(int[] nums) {
 
+        return 0;
     }
 }
