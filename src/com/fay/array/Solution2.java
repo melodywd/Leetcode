@@ -2,6 +2,7 @@ package com.fay.array;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class Solution2 {
@@ -13,7 +14,12 @@ public class Solution2 {
         // 结果集合
         List<int[]> ans = new ArrayList<>();
         // 排序数组左端点从小到大
-        Arrays.sort(intervals,(p,q) -> p[0] - q[0]);
+        Arrays.sort(intervals,new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[0] - o2[0];
+            }
+        });
         ans.add(intervals[0]);
         for (int[] p : intervals) {
             int m = ans.size();
