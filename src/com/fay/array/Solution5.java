@@ -2,7 +2,8 @@ package com.fay.array;
 
 public class Solution5 {
     public static void main(String[] args) {
-
+        int[] nums = {3,4,-1,1};
+        System.out.println(firstMissingPositive(nums));
     }
     public static int firstMissingPositive(int[] nums) {
         int n = nums.length;
