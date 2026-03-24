@@ -10,6 +10,7 @@ public class Solution2 {
             ListNode temp = cur.next;
             // 反转当前结点方向
             cur.next = pre;
+            // 更新结点
             pre = cur;
             cur = temp;
         }
