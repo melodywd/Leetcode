@@ -11,7 +11,7 @@ public class Solution4 {
         if (left == null && right == null) return true;
         // 只有一个为空不是镜像
         if (left == null || right == null) return false;
-        // 镜像满足条件：节点相等、左左和右右、左右和右左都为镜像
+        // 镜像满足条件：节点值相等、左左和右右、左右和右左都为镜像
         return left.val == right.val && isSame(left.left, right.right) && isSame(left.right, right.left);
     }
 }
