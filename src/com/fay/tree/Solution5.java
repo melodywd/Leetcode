@@ -16,7 +16,6 @@ public class Solution5 {
         int r = len(root.right) + 1;
         // 更新最大直径
         res = Math.max(res, l + r);
-        // 返回当前节点的链长
         return Math.max(l, r);
     }
 }
