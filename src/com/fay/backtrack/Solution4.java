@@ -5,7 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Solution4 {
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+    public static void main(String[] args) {
+        int[] candidates = {2,3,5};
+        int target = 8;
+        System.out.println(combinationSum(candidates, target));
+    }
+    public static List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> path = new ArrayList<>();
         // 排序数组
