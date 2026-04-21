@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Solution5 {
     public static void main(String[] args) {
-        int n = 4;
+        int n = 3;
         System.out.println(generateParenthesis(n));
     }
     public static List<String> generateParenthesis(int n) {
