@@ -1,4 +1,4 @@
-package com.fay.backtracking;
+package com.fay.backtrack;
 
 import java.util.ArrayList;
 import java.util.Arrays;
