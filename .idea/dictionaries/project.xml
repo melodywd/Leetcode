@@ -2,7 +2,9 @@
   <dictionary name="project">
     <words>
       <w>nums</w>
+      <w>pqrs</w>
       <w>strs</w>
+      <w>wxyz</w>
     </words>
   </dictionary>
 </component>
