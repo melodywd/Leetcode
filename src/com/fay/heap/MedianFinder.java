@@ -12,11 +12,12 @@ class MedianFinder {
     }
 
     public void addNum(int num) {
-        // 交替加入堆
+        // p 中元素比 q 多一个
         if (p.size() != q.size()) {
             p.add(num);
             q.add(p.poll());
         }else {
+            // 两个堆元素个数相等
             q.add(num);
             p.add(q.poll());
         }
