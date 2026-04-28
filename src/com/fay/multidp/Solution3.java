@@ -43,7 +43,8 @@ public class Solution3 {
                 l--;
                 r++;
             }
-            if (r - l > right - left) {
+            // 循环结束后，s[l+1] 到 s[r-1] 是回文串
+            if (r - l - 1 > right - left + 1) {
                 left = l + 1;
                 right = r - 1;
             }
@@ -57,7 +58,8 @@ public class Solution3 {
                 l--;
                 r++;
             }
-            if (r - l > right - left) {
+            // 循环结束后，s[l+1] 到 s[r-1] 是回文串
+            if (r - l - 1 > right - left + 1) {
                 left = l + 1;
                 right = r - 1;
             }
