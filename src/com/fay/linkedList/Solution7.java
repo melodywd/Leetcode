@@ -3,7 +3,7 @@ package com.fay.linkedList;
 public class Solution7 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         // 定义两个数之和的虚拟头节点
-        ListNode dummy = new ListNode();
+        ListNode dummy = new ListNode(0);
         ListNode cur = dummy;
         // 进位
         int num = 0;
