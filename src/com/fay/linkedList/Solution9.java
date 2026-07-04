@@ -3,7 +3,7 @@ package com.fay.linkedList;
 public class Solution9 {
     public ListNode swapPairs(ListNode head) {
         // 虚拟头节点
-        ListNode dummy = new ListNode();
+        ListNode dummy = new ListNode(0);
         dummy.next = head;
         ListNode cur = dummy;
         // 后面两个节点不为空再交换

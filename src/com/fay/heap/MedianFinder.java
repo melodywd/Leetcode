@@ -2,7 +2,7 @@ package com.fay.heap;
 
 import java.util.PriorityQueue;
 
-public class MedianFinder {
+class MedianFinder {
     PriorityQueue<Integer> p,q;
     public MedianFinder() {
         // 小顶堆，存较大的一半
@@ -12,18 +12,18 @@ public class MedianFinder {
     }
 
     public void addNum(int num) {
-        // 交替加入堆
+        // p 中元素比 q 多一个
         if (p.size() != q.size()) {
-            p.offer(num);
-            q.offer(p.poll());
+            p.add(num);
+            q.add(p.poll());
         }else {
-            q.offer(num);
-            p.offer(q.poll());
+            // 两个堆元素个数相等
+            q.add(num);
+            p.add(q.poll());
         }
     }
 
     public double findMedian() {
         return p.size() == q.size() ? (p.peek() + q.peek())/2.0 : p.peek();
     }
-
 }
