@@ -1,7 +1,40 @@
 package com.fay.linkedList;
 
-public class Solution10 {
-    public ListNode reverseKGroup(ListNode head, int k) {
+import java.util.Scanner;
+
+public class Solution10ACM {
+    public static void main(String[] args) {
+        // 构建链表
+        Scanner sc = new Scanner(System.in);
+        int m = sc.nextInt();
+        int k = sc.nextInt();
+        ListNode head = buildList(m, sc);
+        ListNode res = reverseKGroup(head, k);
+        printList(res);
+    }
+    // 构建链表
+    private static ListNode buildList(int m, Scanner sc) {
+        ListNode dummy = new ListNode(0);
+        ListNode cur = dummy;
+        for (int i = 0; i < m; i++) {
+            int x = sc.nextInt();
+            cur.next = new ListNode(x);
+            cur = cur.next;
+        }
+        return dummy.next;
+    }
+    // 打印链表
+    private static void printList(ListNode res) {
+        while (res != null) {
+            if (res.next != null) {
+                System.out.print(res.val + " ");
+            }else {
+                System.out.print(res.val);
+            }
+            res = res.next;
+        }
+    }
+    public static ListNode reverseKGroup(ListNode head, int k) {
         // 统计链表节点个数
         int n = 0;
         ListNode cur = head;
