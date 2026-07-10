@@ -1,10 +1,8 @@
 package com.fay.linkedList;
-
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class Solution13 {
-    public ListNode mergeKLists(ListNode[] lists) {
+    public static ListNode mergeKLists(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
         // 最小堆，根节点为最小值
         PriorityQueue<ListNode> pq = new PriorityQueue<>(( a,  b) -> a.val - b.val);
