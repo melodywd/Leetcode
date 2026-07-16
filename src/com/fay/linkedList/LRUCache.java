@@ -55,7 +55,7 @@ public class LRUCache {
         }
     }
     // 获取节点，并将节点移到头节点位置
-    public Node getNode(int key) {
+    private Node getNode(int key) {
         if (!NodeMap.containsKey(key)) {
             return null;
         }
@@ -67,12 +67,12 @@ public class LRUCache {
         return node;
     }
     // 移除节点
-    public void remove(Node node) {
+    private void remove(Node node) {
         node.prev.next = node.next;
         node.next.prev = node.prev;
     }
     // 节点移到头节点位置
-    public void addToHead(Node node) {
+    private void addToHead(Node node) {
         node.prev = dummy;
         node.next = dummy.next;
         node.prev.next = node;
