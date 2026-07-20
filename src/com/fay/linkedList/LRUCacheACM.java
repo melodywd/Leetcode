@@ -1,10 +1,8 @@
 package com.fay.linkedList;
-
-
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class LRUCacheACM {
+
     // 定义双向链表节点
     static class Node {
         int key;
@@ -59,7 +57,7 @@ public class LRUCacheACM {
         }
     }
     // 获取节点，并将节点移到头节点位置
-    public Node getNode(int key) {
+    private Node getNode(int key) {
         if (!NodeMap.containsKey(key)) {
             return null;
         }
@@ -71,15 +69,33 @@ public class LRUCacheACM {
         return node;
     }
     // 移除节点
-    public void remove(Node node) {
+    private void remove(Node node) {
         node.prev.next = node.next;
         node.next.prev = node.prev;
     }
     // 节点移到头节点位置
-    public void addToHead(Node node) {
+    private void addToHead(Node node) {
         node.prev = dummy;
         node.next = dummy.next;
         node.prev.next = node;
         node.next.prev = node;
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int capacity = scanner.nextInt();
+        int n = scanner.nextInt();
+        LRUCacheACM LRU = new LRUCacheACM(capacity);
+
+        for (int i = 0; i < n; i++) {
+            if ("put".equals(scanner.next())) {
+                int key = scanner.nextInt();
+                int value = scanner.nextInt();
+                LRU.put(key, value);
+            }else if ("get".equals(scanner.next())) {
+                int key = scanner.nextInt();
+                int value = LRU.get(key);
+                System.out.println(value + " " + LRU.get(key));
+            }
+        }
     }
 }
