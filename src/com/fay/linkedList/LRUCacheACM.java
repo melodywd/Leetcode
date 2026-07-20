@@ -6,14 +6,18 @@ import java.util.Map;
 
 public class LRUCacheACM {
     // 定义双向链表节点
-    private static class Node {
+    static class Node {
         int key;
         int value;
-        Node prev,next;
+        Node prev;
+        Node next;
 
+        Node(){};
         Node (int k, int v) {
             key = k;
             value = v;
+            prev = null;
+            next = null;
         }
     }
     // 容量、虚拟头节点、哈希表（存节点）
