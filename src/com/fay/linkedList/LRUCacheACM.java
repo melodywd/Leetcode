@@ -1,19 +1,21 @@
 package com.fay.linkedList;
-
-
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class LRUCacheACM {
+
     // 定义双向链表节点
-    private static class Node {
+    static class Node {
         int key;
         int value;
-        Node prev,next;
+        Node prev;
+        Node next;
 
+        Node(){};
         Node (int k, int v) {
             key = k;
             value = v;
+            prev = null;
+            next = null;
         }
     }
     // 容量、虚拟头节点、哈希表（存节点）
@@ -78,5 +80,22 @@ public class LRUCacheACM {
         node.prev.next = node;
         node.next.prev = node;
     }
-}
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int capacity = scanner.nextInt();
+        int n = scanner.nextInt();
+        LRUCacheACM LRU = new LRUCacheACM(capacity);
 
+        for (int i = 0; i < n; i++) {
+            if ("put".equals(scanner.next())) {
+                int key = scanner.nextInt();
+                int value = scanner.nextInt();
+                LRU.put(key, value);
+            }else if ("get".equals(scanner.next())) {
+                int key = scanner.nextInt();
+                int value = LRU.get(key);
+                System.out.println(value + " " + LRU.get(key));
+            }
+        }
+    }
+}
