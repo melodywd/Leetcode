@@ -1,30 +1,32 @@
 package com.fay.doubleptr;
 
+import java.util.Scanner;
+
 public class Solution3ACM {
     public static void main(String[] args) {
-        int[] height = {0,1,0,2,1,0,1,3,2,1,2,1};
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] height = new int[n];
+        for (int i = 0; i < n; i++) {
+            height[i] = scanner.nextInt();
+        }
         System.out.println(trap(height));
     }
     public static int trap(int[] height) {
         int res = 0;
-        // 双指针
-        int left = 0;
-        int right = height.length - 1;
-        // 前缀和后缀的最大值，随着指针移动而更新
         int preMax = 0;
         int sufMax = 0;
-
-        while (left < right) {
-            // 更新前缀和后缀最大值
-            preMax = Math.max(preMax, height[left]);
-            sufMax = Math.max(sufMax, height[right]);
-            // 判断左右最小值，收集雨水
+        int l = 0;
+        int r = height.length - 1;
+        while (l < r) {
+            preMax = Math.max(height[l], preMax);
+            sufMax = Math.max(height[r], sufMax);
             if (preMax < sufMax) {
-                res += preMax - height[left];
-                left++;
+                res += preMax - height[l];
+                l++;
             }else {
-                res += sufMax - height[right];
-                right--;
+                res += sufMax - height[r];
+                r--;
             }
         }
         return res;
