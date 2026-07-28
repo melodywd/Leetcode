@@ -35,7 +35,7 @@ public class Solution3 {
         return ansLeft < 0 ? "" : s.substring(ansLeft, ansRight +1);
     }
     // 判断记录字母出现次数的数组是否包含
-    public static boolean isCovered(int[] cntS, int[] cntT) {
+    private static boolean isCovered(int[] cntS, int[] cntT) {
         for (int i = 'A'; i < 'Z'; i++) {
             if (cntS[i] < cntT[i]) {
                 return false;
