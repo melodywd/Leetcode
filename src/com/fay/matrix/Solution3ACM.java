@@ -1,22 +1,34 @@
 package com.fay.matrix;
 
+import java.util.Scanner;
+
 public class Solution3ACM {
     public static void main(String[] args) {
-
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[][] matrix = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+        rotate(matrix);
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
     public static void rotate(int[][] matrix) {
-        // 矩阵阶数
         int n = matrix.length;
-        // 矩阵转置
         for (int i = 0; i < n; i++) {
-            // 只需要交换主对角线下方的元素
             for (int j = 0; j < i; j++) {
                 int temp = matrix[i][j];
                 matrix[i][j] = matrix[j][i];
                 matrix[j][i] = temp;
             }
         }
-        // 进行行翻转，关于中轴对称元素交换
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n/2; j++) {
                 int temp = matrix[i][j];
