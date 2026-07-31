@@ -1,7 +1,22 @@
 package com.fay.binarysearch;
 
+import java.util.Scanner;
+
 public class Solution3ACM {
-    public int[] searchRange(int[] nums, int target){
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int target = sc.nextInt();
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i] = sc.nextInt();
+        }
+        int[] res = searchRange(nums,target);
+        for (int i : res) {
+            System.out.print(i + " ");
+        }
+    }
+    public static int[] searchRange(int[] nums, int target){
         // 如果数组中没有目标值，返回{-1,-1}
         boolean flag = search(nums,target);
         if (!flag) {
@@ -12,14 +27,13 @@ public class Solution3ACM {
         return new int[]{left,right};
 
     }
-    // 二分查找左边界
+
     public static int searchLeft(int[] nums, int target) {
-        int n = nums.length - 1;
         int left = 0;
-        int right = n;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] < target) {
+        int right = nums.length-1;
+        while (left <= right){
+            int mid = left + (right - left)/2;
+            if (nums[mid] < target){
                 left = mid + 1;
             }else {
                 right = mid - 1;
@@ -27,35 +41,31 @@ public class Solution3ACM {
         }
         return right + 1;
     }
-    // 二分查找右边界
+
     public static int searchRight(int[] nums, int target) {
-        int n = nums.length - 1;
         int left = 0;
-        int right = n;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] > target) {
+        int right = nums.length-1;
+        while (left <= right){
+            int mid = left + (right - left)/2;
+            if (nums[mid] > target){
                 right = mid - 1;
-            }else {
+            }else  {
                 left = mid + 1;
             }
         }
         return left - 1;
     }
-    // 二分查找
+
     public static boolean search(int[] nums, int target) {
-        int n = nums.length - 1;
-        int left = 0;
-        int right = n;
-        while (left <= right) {
-            int mid = left + (right - left)/2;
+        int l = 0;
+        int r = nums.length - 1;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
             if (nums[mid] == target) return true;
-            if (nums[mid] > target) {
-                // target 在左区间，所以[left, middle - 1]
-                right = mid - 1;
-            }else {
-                // target 在右区间，所以[middle + 1, right]
-                left = mid + 1;
+            if (nums[mid] < target) {
+                l = mid + 1;
+            }else  {
+                r = mid - 1;
             }
         }
         return false;
