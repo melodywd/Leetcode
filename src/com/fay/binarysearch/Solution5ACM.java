@@ -1,11 +1,16 @@
 package com.fay.binarysearch;
 
+import java.util.Scanner;
+
 public class Solution5ACM {
     public static void main(String[] args) {
-        int[] nums1 = {4,5,6,7,1,2,3};
-        int[] nums2 = {4,5,6,7,3};
-        System.out.println(findMin(nums1));
-        System.out.println(findMin(nums2));
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i] = sc.nextInt();
+        }
+        System.out.println(findMin(nums));
     }
     public static int findMin(int[] nums) {
         // 二分查找旋转排序数组的最小值，闭区间
