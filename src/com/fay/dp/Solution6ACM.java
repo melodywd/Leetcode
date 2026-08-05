@@ -1,22 +1,26 @@
 package com.fay.dp;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Solution6ACM {
-    public boolean wordBreak(String s, List<String> wordDict) {
-        // 状态数组 dp，dp[i]表示字符串前i个字符组成的单词是否可由字典单词组成
-        boolean[] dp = new boolean[s.length()+1];
-        // 哈希表存储字典的单词
-        Set<String> wordsSet = new HashSet<>(wordDict);
-        // 初始状态，空字符串必然可被拆分
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String s = sc.next();
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            list.add(sc.next());
+        }
+        System.out.println(wordBreak(s, list));
+    }
+    public static boolean wordBreak(String s, List<String> wordDict) {
+        int n = s.length();
+        boolean[] dp = new boolean[n + 1];
+        Set<String> wordSet = new HashSet<>(wordDict);
         dp[0] = true;
-        for (int i = 1; i <= s.length(); i++) {
-            // j从0到i切割字符串，判断dp[j]是否可拆分 和 j到i的字符串 是否在字典中
+        for (int i = 1; i <= n; i++) {
             for (int j = 0; j < i; j++) {
-                // 状态转移方程 dp[i] = dp[j] && wordsSet.contains(s.substring(j,i))
-                if (dp[j] && wordsSet.contains(s.substring(j,i))) {
+                if (dp[j] && wordSet.contains(s.substring(j, i))) {
                     dp[i] = true;
                     break;
                 }
