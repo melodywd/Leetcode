@@ -1,9 +1,7 @@
 package com.fay.tree;
 
-import com.fay.linkedList.ListNode;
-
 import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Solution2 {
     public int maxDepth1(TreeNode root) {
