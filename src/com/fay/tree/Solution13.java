@@ -24,6 +24,6 @@ public class Solution13 {
         dfs(root.left, s, targetSum, map);
         dfs(root.right, s, targetSum, map);
         // 回溯撤销，回到父节点，在哈希表中去掉节点值和
-        map.put(s, map.getOrDefault(s, 0) - 1);
+        map.put(s, map.get(s) - 1);
     }
 }
