@@ -26,7 +26,6 @@ public class Solution1 {
             ans.add(new ArrayList<>(path));
             return;
         }
-
         for (int j = 0; j < nums.length; j++) {
             // nums[j]没被选
             if (!onPath[j]) {

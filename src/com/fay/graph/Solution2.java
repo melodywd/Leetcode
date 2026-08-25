@@ -4,13 +4,12 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class Solution2 {
-    private int res;
     private static final int[][] DIRECTIONS = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; // 四方向
 
     public int orangesRotting(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
-
+        int res = 0;
         int fresh = 0;
         Queue<int[]> q = new ArrayDeque<>();
         for (int i = 0; i < m; i++) {
