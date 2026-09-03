@@ -24,15 +24,6 @@ public class Solution8 {
         return ans;
     }
 
-    /**
-     *
-     * @param r 当前行数
-     * @param board 棋盘
-     * @param col 记录列数状态
-     * @param d1 记录主对角线状态
-     * @param d2 记录副对角线状态
-     * @param ans 结果集合
-     */
     public void dfs(int r, char[][] board, boolean[] col, boolean[] d1, boolean[] d2, List<List<String>> ans) {
         int n = col.length;
         // 递归边界

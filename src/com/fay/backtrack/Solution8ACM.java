@@ -21,6 +21,7 @@ public class Solution8ACM {
     }
 
     public static void dfs(int r, char[][] board, boolean[] col, boolean[] d1, boolean[] d2, List<List<String>> ans) {
+        int n = col.length;
         if (r == col.length) {
             List<String> path = new ArrayList<>();
             for (char[] row : board) {
@@ -28,6 +29,15 @@ public class Solution8ACM {
             }
             ans.add(path);
             return;
+        }
+        for (int c = 0; c < col.length; c++) {
+            if (!col[c] && !d1[r+c] && !d2[r-c+n-1]) {
+                board[r][c] = 'Q';
+                col[c] = d1[r+c] = d2[r-c+n-1] = true;
+                dfs(r+1, board, col, d1, d2, ans);
+                board[r][c] = '.';
+                col[c] = d1[r+c] = d2[r-c+n-1] = false;
+            }
         }
 
     }
