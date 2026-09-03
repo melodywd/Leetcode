@@ -3,7 +3,9 @@ import java.util.*;
 
 public class Solution8ACM {
     public static void main(String[] args) {
-
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(solveNQueens(n));
     }
     public static List<List<String>> solveNQueens(int n) {
         List<List<String>> ans = new ArrayList<>();
