@@ -1,23 +1,35 @@
 package com.fay.stack;
-
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.*;
 
 public class Solution4 {
-    public int[] dailyTemperatures(int[] temperatures) {
-        int n = temperatures.length;
-        int[] ans = new int[n];
-        // 栈存索引，存入还没找到更大元素的索引
+    public int largestRectangleArea(int[] heights) {
+        int n = heights.length;
+        int ans = 0;
         Deque<Integer> stack = new ArrayDeque<>();
+        // 记录左边和右边最近的较小值
+        int[] left = new int[n];
+        int[] right = new int[n];
+        // 遍历左边
         for (int i = 0; i < n; i++) {
-            int t = temperatures[i];
-            // 遇到更大的元素就弹出栈，记录结果
-            while (!stack.isEmpty() && t > temperatures[stack.peek()]) {
-                int j = stack.pop();
-                ans[j] = i - j;
+            while (!stack.isEmpty() && heights[i] <= heights[stack.peek()]) {
+                stack.pop();
             }
-            // 否则入栈
+            // 记录每个矩形的左边界
+            left[i] = stack.isEmpty() ? -1 : stack.peek();
             stack.push(i);
+        }
+        // 遍历右边
+        stack.clear();
+        for (int i = n - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && heights[i] <= heights[stack.peek()]) {
+                stack.pop();
+            }
+            // 记录每个矩形的右边界
+            right[i] = stack.isEmpty() ? n : stack.peek();
+            stack.push(i);
+        }
+        for (int i = 0; i < n; i++) {
+            ans = Math.max(ans, heights[i] * (right[i] - left[i] - 1));
         }
         return ans;
     }
