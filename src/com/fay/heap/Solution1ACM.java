@@ -1,9 +1,7 @@
 package com.fay.heap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
-public class Solution1 {
+public class Solution1ACM {
     public int findKthLargest(int[] nums, int k) {
         List<Integer> numList = new ArrayList<>();
         for (int num : nums) {
